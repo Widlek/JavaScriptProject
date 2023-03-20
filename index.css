@@ -18,11 +18,19 @@ body .game-menu {
   justify-content: center;
   align-items: center;
 }
+html .game-menu .canvas,
+body .game-menu .canvas {
+  background-image: url('/istockphoto-1098332904-612x612.jpg');
+}
 html .shop-menu,
 body .shop-menu {
   width: 20%;
   height: 100%;
-  background-color: lightcoral;
+  background-color: #6a0101;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
