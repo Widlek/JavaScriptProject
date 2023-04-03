@@ -9,10 +9,6 @@ canvas.height = window.innerHeight;
 
 var projectileVelocity = 9;
 
-var projectileDamage = 1;
-
-var attackSpeed = 1000;
-
 var money = 100;
 
 class Player {
@@ -24,6 +20,8 @@ class Player {
         this.speedY = speedY;
         this.hp = hp;
         this.color = color;
+        this.attackSpeed = 500;
+        this.damage = 1;
 
     }
 
@@ -86,7 +84,8 @@ class Projectile{
         this.type = type;
         this.color = color;
         this.radius = radius;
-        this. velocity = velocity;
+        this.velocity = velocity;
+        this.ricochet = 5;
         
     }
 
@@ -100,7 +99,6 @@ class Projectile{
     update(){
         this.x = this.x + this.velocity.x;
         this.y = this.y + this.velocity.y;
-
     }
 }
 
@@ -141,11 +139,13 @@ class Enemy{
     constructor(x, y, color, hp, velocity){
       this.x = x;
       this.y = y;
-      this.hp = Math.trunc((Math.random() * (6 - 3)) + 3);
+      this.hp = hp;
       this.radius = Math.trunc((15 * (this.hp))/3 + 10);
       this.velocity = velocity;
       this.trueHp = hp;
       this.color = color;
+      this.tempX = 0;
+      this.tempY = 0;
         // switch(this.hp){
         //   case 1: this.color = 'red';
         //     break;
@@ -158,10 +158,6 @@ class Enemy{
         //   case 5: this.color = 'pink';
         //     break;
         // }
-
-
-
-        
     }
 
     draw(){
@@ -171,44 +167,48 @@ class Enemy{
         cxt.fill();
     }
 
-    update(){
-        this.angle = Math.atan2(newplayer.getY() - this.y, newplayer.getX() - this.x);
-        // if(newplayer.getX() + 5 - this.x > 0){
-        //     this.constantX = 1;
-        // }
-        // else if(newplayer.getX() + 5 - this.x < 0){
-        //     this.constantX = -1;
-        // }
-
-        // if(newplayer.getY() + 5 - this.y > 0){
-        //     this.constantY = 1
-        // }dw
-        // else if(newplayer.getY() + 5 - this.y < 0){
-        //     this.constantY = -1
-        // }
-        // this.radius = this.radius * this.hp;
-        // this.radius = Math.trunc((30 * this.hp)/3);
-        // switch(this.hp){
-        //   case 1: this.color = 'red';
-        //     break;
-        //   case 2: this.color = 'blue';
-        //     break;
-        //   case 3: this.color = 'green';
-        //     break;
-        //   case 4: this.color = 'yellow';
-        //     break;
-        //   case 5: this.color = 'pink';
-        //     break;
-        // }
-        this.velocity = {
-            x: (Math.cos(this.angle) * 3) / (this.hp * 0.8),
-            y: (Math.sin(this.angle) * 3) / (this.hp * 0.8),
-        }
-        this.x = this.x + this.velocity.x;
-        this.y = this.y + this.velocity.y;
-
-    }
 }
+
+class CommonEnemy extends Enemy{
+  update(){
+    this.angle = Math.atan2(newplayer.getY() - this.y, newplayer.getX() - this.x);
+    // if(newplayer.getX() + 5 - this.x > 0){
+    //     this.constantX = 1;
+    // }
+    // else if(newplayer.getX() + 5 - this.x < 0){
+    //     this.constantX = -1;
+    // }
+
+    // if(newplayer.getY() + 5 - this.y > 0){
+    //     this.constantY = 1
+    // }dw
+    // else if(newplayer.getY() + 5 - this.y < 0){
+    //     this.constantY = -1
+    // }
+    // this.radius = this.radius * this.hp;
+    // this.radius = Math.trunc((30 * this.hp)/3);
+    // switch(this.hp){
+    //   case 1: this.color = 'red';
+    //     break;
+    //   case 2: this.color = 'blue';
+    //     break;
+    //   case 3: this.color = 'green';
+    //     break;
+    //   case 4: this.color = 'yellow';
+    //     break;
+    //   case 5: this.color = 'pink';
+    //     break;
+    // }
+    this.velocity = {
+        x: (Math.cos(this.angle) * 3) / (this.hp * 0.8),
+        y: (Math.sin(this.angle) * 3) / (this.hp * 0.8),
+    }
+    this.x = this.x + this.velocity.x;
+    this.y = this.y + this.velocity.y;
+  }
+}
+
+
 
 class BackgroundProjectile{
   constructor(x, y, radius, color){
@@ -226,6 +226,54 @@ class BackgroundProjectile{
   }
 }
 
+class FastEnemy extends Enemy{
+  update(){
+
+    if(Math.abs(this.tempX - this.tempY) < 5 || Math.abs(this.tempY - this.y) < 5){
+      this.tempX = newplayer.getX() + Math.floor(Math.random() * 200) - 100;
+      this.tempY = newplayer.getY() + Math.floor(Math.random() * 200) - 100;
+    }
+    else if(this.tempX == 0 && this.tempY == 0){
+      this.tempX = newplayer.getX() + Math.floor(Math.random() * 200) - 100;
+      this.tempY = newplayer.getY() + Math.floor(Math.random() * 200) - 100;
+    }
+    this.angle = Math.atan2(this.tempY - this.y, this.tempX - this.x);
+    // if(newplayer.getX() + 5 - this.x > 0){
+    //     this.constantX = 1;
+    // }
+    // else if(newplayer.getX() + 5 - this.x < 0){
+    //     this.constantX = -1;
+    // }
+
+    // if(newplayer.getY() + 5 - this.y > 0){
+    //     this.constantY = 1
+    // }dw
+    // else if(newplayer.getY() + 5 - this.y < 0){
+    //     this.constantY = -1
+    // }
+    // this.radius = this.radius * this.hp;
+    // this.radius = Math.trunc((30 * this.hp)/3);
+    // switch(this.hp){
+    //   case 1: this.color = 'red';
+    //     break;
+    //   case 2: this.color = 'blue';
+    //     break;
+    //   case 3: this.color = 'green';
+    //     break;
+    //   case 4: this.color = 'yellow';
+    //     break;
+    //   case 5: this.color = 'pink';
+    //     break;
+    // }
+    this.velocity = {
+        x: (Math.cos(this.angle) * 4) / (this.hp * 0.8),
+        y: (Math.sin(this.angle) * 4) / (this.hp * 0.8),
+    }
+    this.x = this.x + this.velocity.x;
+    this.y = this.y + this.velocity.y;
+
+}
+}
 var tempX = 0;
 var tempY = 0;
 
@@ -238,7 +286,6 @@ function createBackground(){
     }
     tempX = 0;
     tempY = tempY + 50;
-    console.log("amogus")
   }
 
 }
@@ -317,10 +364,10 @@ function animate(){
   background.forEach((backgroundProjectile, index) =>{
     const dist = Math.hypot(newplayer.x - backgroundProjectile.x, newplayer.y - backgroundProjectile.y)
     if(dist < 75){
-      backgroundProjectile.color = 'rgba(3, 67, 165, 0)';
+      backgroundProjectile.color = 'rgba(6, 134, 165, 0)';
     }
     else if (dist < 125){
-      backgroundProjectile.color = 'rgba(3, 67, 165, 1)';
+      backgroundProjectile.color = 'rgba(6, 134, 165, 1)';
     }
     else{
       backgroundProjectile.color = 'rgba(3, 67, 165, 0.1)';
@@ -341,11 +388,25 @@ function animate(){
       projectile.draw();
       projectile.update()
       setTimeout(()=>{
-        if(projectile.x - projectile.radius < 0 || projectile.x + projectile.radius >= canvas.width ||
-          projectile.y + projectile.radius >= canvas.height || projectile.y - projectile.radius <= 0){
-          projectiles.splice(index, 1)
+        if((projectile.x - projectile.radius < 0 || projectile.x + projectile.radius >= canvas.width ||
+          projectile.y + projectile.radius >= canvas.height || projectile.y - projectile.radius <= 0)){
+          if(projectile.ricochet > 0){
+            if(projectile.x - projectile.radius < 0 || projectile.x + projectile.radius >= canvas.width){
+              projectile.velocity.x *= -1;
+            }
+              else{
+                projectile.velocity.y *= -1;
+              }
+              projectile.ricochet -= 1;
+            
+          }
+          else{
+            projectiles.splice(index, 1)
+          }
           
+
         }
+
       })
 
   })
@@ -375,7 +436,7 @@ function animate(){
             particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, {x:(Math.random() - 0.5) * 8, y:(Math.random() - 0.5) * 8}))
           }
           setTimeout(()=>{
-            enemies[index].hp -= projectileDamage;
+            enemies[index].hp -= newplayer.damage;
             gsap.to(enemy, {
               radius:Math.trunc((15 * (enemy.hp))/3 + 10)
             })
@@ -384,7 +445,15 @@ function animate(){
             {
               enemies.splice(index, 1);
             }
-            projectiles.splice(projectileIndex, 1)
+            if(projectile.ricochet > 0){
+              let random = Math.random() < 0.5 ? -1 : 1;
+              projectile.velocity.x *= random;
+              projectile.velocity.y *= random * -1;
+              projectile.ricochet -= 1;  
+            }
+            else{
+              projectiles.splice(projectileIndex, 1)
+            }
           }, 0)
 
         }
@@ -436,8 +505,8 @@ function spawnEnemies(){
 
       
       // var rgbColor = `hsl(${Math.random() * 360}, 50%, 50%)`;
-      enemies.push(new Enemy(x, y, 'rgb(106, 1, 1)', hp, this.velocity))
-  }, 1000)
+      enemies.push(new FastEnemy(x, y, 'rgb(106, 1, 1)', 1, this.velocity))
+  }, 2000)
 }
 
 const throttle = (func, limit) => {
@@ -469,19 +538,16 @@ canvas.addEventListener('click', throttle((event) => {
   const angle = Math.atan2(event.clientY - newplayer.getY(), event.clientX - newplayer.getX());
 
   const velocity = {
-      x: Math.cos(angle) * projectileVelocity,
-      y: Math.sin(angle) * projectileVelocity,
+      x: Math.cos(angle) * 9,
+      y: Math.sin(angle) * 9,
   } 
 
   projectiles.push(
       new Projectile(newplayer.getX(), newplayer.getY(), 5, 'white', 'normal', velocity),
 
   )
-}, attackSpeed), true);
+}, newplayer.attackSpeed), true);
 
 spawnEnemies();
 animate();
-
-
-
 
