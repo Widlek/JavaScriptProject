@@ -1,7 +1,20 @@
 const canvas = document.getElementById('canvas');
 const cxt = canvas.getContext('2d');
 
+const textTimer = document.getElementById('timer')
+const moneyText = document.getElementById("money")
 
+const healthUpButton = document.getElementById('maxhealthbutton');
+const healButton = document.getElementById('regenbutton');
+const damageUpButton = document.getElementById('damagebutton');
+const ricochetUpButton = document.getElementById('ricochetbutton');
+const attackSpeedUpButton = document.getElementById('attackspeedbutton');
+
+healthUpPrice = 100;
+healPrice = 100;
+damagePrice = 100;
+ricochetPrice = 100;
+attackSpeedPrice = 100;
 
 
 canvas.width = window.innerWidth * 0.80;
@@ -11,17 +24,27 @@ var projectileVelocity = 9;
 
 var money = 100;
 
+var seconds = 0;
+var minutes = 0;
+
+textTimer.style.fontFamily = "fantasy";
+textTimer.style.fontSize ="60px"
+textTimer.style.color = "white"
+moneyText.style.fontFamily = "fantasy";
+moneyText.style.fontSize ="60px"
+moneyText.style.color = "white"
 class Player {
-    constructor(x, y, size, color, speedX, speedY, hp){
+    constructor(x, y, size, color, speedX, speedY, maxHp){
         this.x = x;
         this.y = y;
         this.size = size;
         this.speedX = speedX;
         this.speedY = speedY;
-        this.hp = hp;
+        this.hp = maxHp;
         this.color = color;
         this.attackSpeed = 500;
         this.damage = 1;
+        this.ricochet = 0;
 
     }
 
@@ -78,14 +101,14 @@ update(){
 }
 
 class Projectile{
-    constructor(x, y, radius, color, type, velocity){
+    constructor(x, y, radius, color, type, velocity, ricochet){
         this.x = x;
         this.y = y;
         this.type = type;
         this.color = color;
         this.radius = radius;
         this.velocity = velocity;
-        this.ricochet = 5;
+        this.ricochet = ricochet;
         
     }
 
@@ -134,13 +157,38 @@ class Particle{
 
   }
 }
+class Button{
+  constructor(startPrice, priceModifier, playerStat, playerStatModifier, object, text){
+    this.startPrice = startPrice;
+    this.priceModifier = priceModifier;
+    this.price = startPrice;
+    this.playerStat = playerStat;
+    this.playerStatModifier = playerStatModifier;
+    this.object = object
+    this.text = text;
+  }
 
+  buyUpgrade(){
+    if(money >= this.price){
+      this.price *= this.priceModifier;
+      this.playerStat += playerStatModifier;
+      money =- this.price;
+    }
+  }
+  update(){
+    this.object.innerText = this.text + `${this.price}$`; 
+  }
+
+  getPrice(){
+    return this.price
+  }
+}
 class Enemy{
     constructor(x, y, color, hp, velocity){
       this.x = x;
       this.y = y;
       this.hp = hp;
-      this.radius = Math.trunc((15 * (this.hp))/3 + 10);
+      this.radius = Math.trunc((15 * (this.hp))/3 + 5);
       this.velocity = velocity;
       this.trueHp = hp;
       this.color = color;
@@ -290,6 +338,7 @@ function createBackground(){
 
 }
 
+
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 
@@ -352,11 +401,18 @@ var keyD = false;
 
 let animationId;
 
+heal = new Button(100, 1.10, newplayer.hp, newplayer.maxHp - newplayer.hp, healButton, `Regen health:`);
+healthUp = new Button(100, 1.25, newplayer.maxHp, 1, healthUpButton, `Health Up:`);
+damageUp = new Button(100, 1.25, newplayer.damage, 1, damageUpButton, `Damage Up:`);
+attackSpeedUp = new Button(100, 1.25, newplayer.attackSpeed, -50, attackSpeedUpButton, `Attack speed Up:`);
+ricochetUp = new Button(100, 1.25, newplayer.ricochet, newplayer.maxHp - newplayer.hp, ricochetUpButton, `Wall ricochet:`);
+
+let Buttons = [heal, healthUp, damageUp, attackSpeedUp, ricochetUp]
 
 function animate(){
-
+  console.log(heal.text)
   animationId = requestAnimationFrame(animate);
-  cxt.fillStyle = 'rgba(0,0,0,0.15)'
+  cxt.fillStyle = 'rgba(0,0,0,0.1)'
   cxt.fillRect(0, 0, canvas.width, canvas.height);
   newplayer.draw();
   newplayer.update();
@@ -374,6 +430,7 @@ function animate(){
     }
     backgroundProjectile.draw();
   })
+  moneyText.innerText = `Money: ${money}$`
   particles.forEach((particle, index) =>{
     if(particle.alpha <= 0){
       particles.splice(index, 1);
@@ -381,9 +438,12 @@ function animate(){
     else{
       particle.update();
     }
-
-    
+  
   })
+  Buttons.forEach((button, index)=>{
+    button.update();
+  })
+
   projectiles.forEach((projectile, index) => {
       projectile.draw();
       projectile.update()
@@ -430,30 +490,23 @@ function animate(){
       {
         const dist = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y)
 
-        if(dist - enemy.radius - projectile.radius < 1){
-
+        if(dist - enemy.radius - projectile.radius  < 1){
+          let random = Math.random() < 0.5 ? -1 : 1;
           for(let i = 0; i <enemy.radius * 2; i++){
             particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, {x:(Math.random() - 0.5) * 8, y:(Math.random() - 0.5) * 8}))
           }
           setTimeout(()=>{
             enemies[index].hp -= newplayer.damage;
+            money+=25;
             gsap.to(enemy, {
-              radius:Math.trunc((15 * (enemy.hp))/3 + 10)
+              radius:Math.trunc((15 * (enemy.hp))/3 + 7)
             })
             enemies[index].update();
             if(enemies[index.hp === 0])
             {
               enemies.splice(index, 1);
             }
-            if(projectile.ricochet > 0){
-              let random = Math.random() < 0.5 ? -1 : 1;
-              projectile.velocity.x *= random;
-              projectile.velocity.y *= random * -1;
-              projectile.ricochet -= 1;  
-            }
-            else{
-              projectiles.splice(projectileIndex, 1)
-            }
+            projectiles.splice(projectileIndex, 1)
           }, 0)
 
         }
@@ -479,7 +532,7 @@ function random_rgba() {
 function spawnEnemies(){
     setInterval(() =>{
 
-      let hp = Math.trunc((Math.random() * (5 - 1)) + 1) * 3;
+      let hp = Math.trunc((Math.random() * (5 - 1)) + 1);
       let radius = Math.trunc((15 * (hp))/3 + 10);
       
       let x;
@@ -504,9 +557,9 @@ function spawnEnemies(){
       }
 
       
-      // var rgbColor = `hsl(${Math.random() * 360}, 50%, 50%)`;
-      enemies.push(new FastEnemy(x, y, 'rgb(106, 1, 1)', 1, this.velocity))
-  }, 2000)
+      var rgbColor = `hsl(${Math.random() * 360}, 50%, 50%)`;
+      enemies.push(new CommonEnemy(x, y, rgbColor, hp, this.velocity))
+  }, 500)
 }
 
 const throttle = (func, limit) => {
@@ -531,6 +584,7 @@ const throttle = (func, limit) => {
   }
 
 
+
 window.addEventListener("keydown", onKeyDown, false);
 window.addEventListener("keyup", onKeyUp, false);
 
@@ -543,11 +597,22 @@ canvas.addEventListener('click', throttle((event) => {
   } 
 
   projectiles.push(
-      new Projectile(newplayer.getX(), newplayer.getY(), 5, 'white', 'normal', velocity),
+      new Projectile(newplayer.getX(), newplayer.getY(), 5, 'white', 'normal', velocity, newplayer.ricochet),
 
   )
 }, newplayer.attackSpeed), true);
 
 spawnEnemies();
 animate();
+let gameTimer = setInterval(()=>{
+  seconds += 1;
+  if(seconds >= 60){
+    seconds = 0;
+    minutes += 1;
+  }
+  textTimer.innerText = `${minutes} : ${seconds}`
+}, 1000)
+
+
+
 
