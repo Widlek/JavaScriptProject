@@ -7,40 +7,55 @@
     <link rel="stylesheet" href="./index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="./index.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <main class="game-menu">
+    <main class="game-menu flex justify-center flex-col items-center bg-black">
+        <div>
+            <span class="fixed text-white text-2xl ml-2 mt-1">Score: <span id="score">0</span></span>
+        </div>
+        <div class="fixed inset-0 flex items-center justify-center bg-black" id="startMenu">    
+            <div class="bg-white max-w-md w-full p-6 text-center rounded-lg">
+                <h1 class="text-4xl font-bold leading-none" id="previousScore">0</h1>
+                <p class="text-sm text-gray-700 mb-5">Points</p>
+                <div>
+                    <Button class="bg-indigo-500 text-white w-full py-3, rounded-full shadow-lg shadow-indigo-500/50 hover:bg-sky-700 hover:shadow-lg hover:shadow-sky-700/100 transition ease-in-out delay-150 hover:-translate-y-1 duration-300" id="startButton">Start Game</Button>
+                </div>
+                
+            </div>
+        </div>
+
         <canvas id="canvas" class="canvas">
             <img src="./istockphoto-1098332904-612x612.jpg" alt="">
         </canvas>
     </main>
-    <div class="shop-menu">
-        <div class="timer" id="timer">
+    <div class="shop-menu", id = "height">  
+        <div class="timer" id="timer">e
             <p id="timer" class="timer-text"></p>
         </div>
         <div class="money-text">
             <p id="money" class="money-text"></p>
         </div>
         <div id="upgrades" class="upgrades">
-            <button  class="button">
+            <button  class="button border-8 border-red-600", id="healthup">
                 <p id="maxhealthbutton"></p>
             </button>
 
-            <button class="button">
+            <button class="button", id="heal">
                 <p id="regenbutton"></p>
             </button>
 
-            <button  class="button">
+            <button  class="button", id="damage">
                 <p id="damagebutton"></p>
             </button>
 
-            <button  class="button">
+            <button  class="button", id="ricochet">
                 <p id="ricochetbutton"></p>
             </button>
 
-            <button class="button">
+            <button class="button", id="attackspeed">
                 <p id="attackspeedbutton"></p>
             </button>
         </div>
