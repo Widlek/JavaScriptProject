@@ -923,7 +923,7 @@ function init(){
   
   particles = [];
 
-  
+  money = 0;
   
   uiElements = [maxHealth, currentHalth];
 
@@ -943,5 +943,10 @@ function init(){
 
   score = 0;
 
+  heal = new Button(100, 1.10, newplayer.hp, newplayer.maxHp - newplayer.hp, healButton, `Regen health:`);
+  healthUp = new Button(500, 1.25, newplayer.maxHp, 1, healthUpButton, `Health Up:`);
+  damageUp = new Button(500, 1.25, newplayer.damage, 1, damageUpButton, `Damage Up:`);
+  attackSpeedUp = new Button(400, 1.25, newplayer.attackSpeed, -50, attackSpeedUpButton, `Speed Up:`);
+  ricochetUp = new Button(300, 1.25, newplayer.ricochet, newplayer.maxHp - newplayer.hp, ricochetUpButton, `Wall ricochet:`);
   
 }
