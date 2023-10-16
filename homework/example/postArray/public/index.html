@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chunks POST-request</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+      }
+
+      textarea,
+      input,
+      button,
+      p {
+        margin: 10px;
+      }
+
+      input[type="number"] {
+        width: 150px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="number" id="numberInput" placeholder="Введите число" />
+      <input
+        type="number"
+        id="repeatInput"
+        placeholder="Количество повторений"
+      />
+      <button onclick="sendUserData()">Отправить POST запрос</button>
+      <div><textarea id="resultTextArea" rows="10" cols="50"></textarea></div>
+
+      <p>Результат:</p>
+      <div><input type="text" id="outputNumber" readonly /></div>
+    </div>
+
+    <script>
+      async function sendUserData() {
+        const number = parseInt(numberInput.value);
+        const repeatCount = parseInt(repeatInput.value);
+
+        if (!isNaN(number) && !isNaN(repeatCount) && repeatCount > 0) {
+          let sendData = `${number}; `.repeat(repeatCount);
+          resultTextArea.value = sendData;
+
+          let response = await fetch("/api/sum", {
+            method: "POST",
+            body: sendData,
+          });
+
+          let responseText = await response.text();
+          console.log(response);
+          outputNumber.value = responseText;
+        } else {
+          alert("Пожалуйста, введите корректное число.");
+        }
+      }
+    </script>
+  </body>
+</html>

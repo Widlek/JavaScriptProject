@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="a">a:</label>
+
+    <input id="a" name="a" size="10" />
+
+    <label for="b">b:</label>
+
+    <input id="b" name="b" size="10" />
+
+    <label for="action">action:</label>
+
+    <select id="action" name="action">
+        <option selected>select action</option>
+        <option value="plus">plus</option>
+        <option value="minus">minus</option>
+        <option value="multiply">multiply</option>
+        <option value="divide">divide</option>
+    </select>
+
+    <button id="calculate" name="calculate" onclick="getAllCars()">getAllCars</button>
+    <button id="calculate" name="calculate" onclick="addCar()">addCar</button>
+    <button id="calculate" name="calculate" onclick="sortedCars()">sortCar</button>
+
+    <p id="result" name="result">result: {{result}}</p>
+
+    <script>
+        async function getAllCars() {
+            let response = await fetch("/cars/all", {
+                method: "POST",
+            });
+            let responseText = await response.text();
+
+            document.querySelector("#result").textContent = `result : ${responseText}`;
+
+        }
+        async function addCar() {
+            const name = document.querySelector("#a").value;
+            const someSpec = document.querySelector("#b").value;
+            let dataSend = {
+                name: name,
+                someSpec: someSpec,
+            };
+            let response = await fetch("/cars/add", {
+                method: "POST",
+                body: `${dataSend}`,
+            });
+
+        }
+
+        async function postDeviceByName() {
+            let deviceObj = JSON.stringify({
+                name: document.querySelector("#a").value,
+            });
+
+            sendData = `${deviceObj}`;
+
+            const response = await fetch(`/cars/sort`, {
+                method: "POST",
+                body: sendData,
+            });
+
+            const responseObj = await response.text();
+
+            document.querySelector("#result").textContent = `result : ${responseObj}`;
+        }
+
+
+    </script>
+</body>
+
+</html>

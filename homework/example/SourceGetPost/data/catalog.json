@@ -1,0 +1,152 @@
+{
+    "HONOR 90 8GB/256GB международная версия": {
+        "price": "443.87",
+        "someSpec": "\n                Android, экран 6.7\" AMOLED (1200x2664) 120 Гц, Qualcomm Snapdragon 7 Gen 1 Accelerated Edition, ОЗУ 8 ГБ, память 256 ГБ, камера 200 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM/eSIM)\n            ",
+        "img": "header/f5215ab67a2f4f60d1d4ec2b62c27262.jpeg"
+    },
+    "POCO F5 12GB/256GB международная версия": {
+        "price": "458.87",
+        "someSpec": "\n                Android, экран 6.67\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 7+ Gen 2, ОЗУ 12 ГБ, память 256 ГБ, камера 64 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM), влагозащита IP53\n            ",
+        "img": "header/dc6ae5fa1dbd43a80e53a83e1eb14f2d.jpeg"
+    },
+    "Infinix Note 30 8GB/128GB": {
+        "price": "2935.38",
+        "someSpec": "\n                Android, экран 6.78\" IPS (1080x2460) 120 Гц, Mediatek Helio G99, ОЗУ 8 ГБ, память 128 ГБ, поддержка карт памяти, камера 64 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM), влагозащита IP53\n            ",
+        "img": "header/98cd0414f8f1aa91dbe0f035e3416ff2.jpeg"
+    },
+    "Apple iPhone 12 Pro 128GB Восстановленный by Breezy, грейд B": {
+        "price": "764.99",
+        "someSpec": "\n                Apple iOS, экран 6.1\" OLED (1170x2532) 60 Гц, Apple A14 Bionic, ОЗУ 6 ГБ, память 128 ГБ, камера 12 Мп, аккумулятор 2775 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/b6b2bad1601395e9ed3810b72e2bcfa6.png"
+    },
+    "Infinix Hot 30i X669D 8GB/128GB": {
+        "price": "115.84",
+        "someSpec": "\n                Android, экран 6.56\" IPS (720x1612) 90 Гц, UniSoC Tiger T606, ОЗУ 8 ГБ, память 128 ГБ, поддержка карт памяти, камера 13 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM)\n            ",
+        "img": "header/61cf5532a4a85446a1bcae7203ab90f8.jpeg"
+    },
+    "Apple iPhone XR 64GB Восстановленный by Breezy, грейд B": {
+        "price": "305.81",
+        "someSpec": "\n                Apple iOS, экран 6.1\" IPS (828x1792), Apple A12 Bionic, ОЗУ 3 ГБ, память 64 ГБ, камера 12 Мп, аккумулятор 2942 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP67\n            ",
+        "img": "header/dbd5dec69b90e7d754041d6c19dc79e5.png"
+    },
+    "Apple iPhone SE 64GB Восстановленный by Breezy, грейд B": {
+        "price": "259.90",
+        "someSpec": "\n                Apple iOS, экран 4.7\" IPS (750x1334) 60 Гц, Apple A13 Bionic, ОЗУ 3 ГБ, память 64 ГБ, камера 12 Мп, аккумулятор 1820 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP67\n            ",
+        "img": "header/d288c5101a56bfe17964ea3484b3b7c5.png"
+    },
+    "Oppo Reno8 T CPH2481 8GB/128GB международная версия": {
+        "price": "259.62",
+        "someSpec": "\n                Android, экран 6.43\" AMOLED (1080x2400) 90 Гц, Mediatek Helio G99, ОЗУ 8 ГБ, память 128 ГБ, поддержка карт памяти, камера 100 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM)\n            ",
+        "img": "header/2db22a8697f5d1885670cd4a578053c1.jpeg"
+    },
+    "Xiaomi Redmi 12 8GB/256GB без NFC международная версия": {
+        "price": "207.86",
+        "someSpec": "\n                Android, экран 6.79\" IPS (1080x2460) 90 Гц, Mediatek Helio G88, ОЗУ 8 ГБ, память 256 ГБ, поддержка карт памяти, камера 50 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM), влагозащита IP53\n            ",
+        "img": "header/30f0ccc8a60a07c5de5b694c0ad5859c.jpeg"
+    },
+    "Apple iPhone 14 128GB": {
+        "price": "826.22",
+        "someSpec": "\n                Apple iOS, экран 6.1\" OLED (1170x2532) 60 Гц, Apple A15 Bionic, ОЗУ 6 ГБ, память 128 ГБ, камера 12 Мп, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/18356816dfc5ab98f5ada5481b1d4c57.jpeg"
+    },
+    "Apple iPhone 14 Pro 128GB": {
+        "price": "1101.72",
+        "someSpec": "\n                Apple iOS, экран 6.1\" OLED (1179x2556) 120 Гц, Apple A16 Bionic, ОЗУ 6 ГБ, память 128 ГБ, камера 48 Мп, аккумулятор 3200 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/ad1fd08115cc6e1b4c289d580d79b406.jpeg"
+    },
+    "Apple iPhone 13 128GB": {
+        "price": "759.79",
+        "someSpec": "\n                Apple iOS, экран 6.1\" OLED (1170x2532) 60 Гц, Apple A15 Bionic, ОЗУ 4 ГБ, память 128 ГБ, камера 12 Мп, аккумулятор 3227 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/b9fefc8c8f96dbc21492792f3a1a502d.jpeg"
+    },
+    "Apple iPhone 14 Pro Max 128GB": {
+        "price": "1193.56",
+        "someSpec": "\n                Apple iOS, экран 6.7\" OLED (1290x2796) 120 Гц, Apple A16 Bionic, ОЗУ 6 ГБ, память 128 ГБ, камера 48 Мп, аккумулятор 4323 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/6fb2af9b7c88c0647e3b09f1ebacdb7b.jpeg"
+    },
+    "Apple iPhone 11 64GB": {
+        "price": "498.97",
+        "someSpec": "\n                Apple iOS, экран 6.1\" IPS (828x1792), Apple A13 Bionic, ОЗУ 4 ГБ, память 64 ГБ, камера 12 Мп, аккумулятор 3046 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/e2189f90f9088975c553ec33431fc186.jpeg"
+    },
+    "Apple iPhone 13 Pro 128GB": {
+        "price": "1025.50",
+        "someSpec": "\n                Apple iOS, экран 6.1\" OLED (1170x2532) 120 Гц, Apple A15 Bionic, ОЗУ 6 ГБ, память 128 ГБ, камера 12 Мп, аккумулятор 3095 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/c66db6b4c5cce1915eadd8bb59f5c527.jpeg"
+    },
+    "Samsung Galaxy S23 SM-S911B/DS 8GB/128GB": {
+        "price": "719.38",
+        "someSpec": "\n                Android, экран 6.1\" AMOLED (1080x2340) 120 Гц, Qualcomm Snapdragon 8 Gen2 SM8550, ОЗУ 8 ГБ, память 128 ГБ, камера 50 Мп, аккумулятор 3900 мАч, 2 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/17db09cf687175b3917e5e034bca8aa1.jpeg"
+    },
+    "Samsung Galaxy S23 Ultra SM-S918B/DS 12GB/256GB": {
+        "price": "1071.42",
+        "someSpec": "\n                Android, экран 6.8\" AMOLED (1440x3088) 120 Гц, Qualcomm Snapdragon 8 Gen2 SM8550, ОЗУ 12 ГБ, память 256 ГБ, камера 200 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/6e35c8339e8c97370f214840279ff960.jpeg"
+    },
+    "Samsung Galaxy A54 5G SM-A546E/DS 8GB/256GB": {
+        "price": "423.98",
+        "someSpec": "\n                Android, экран 6.4\" AMOLED (1080x2340) 120 Гц, Exynos 1380, ОЗУ 8 ГБ, память 256 ГБ, поддержка карт памяти, камера 50 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM), влагозащита IP67\n            ",
+        "img": "header/99c91ac0601efde6e7387bbeaae6c012.jpeg"
+    },
+    "Apple iPhone 12 64GB": {
+        "price": "642.85",
+        "someSpec": "\n                Apple iOS, экран 6.1\" OLED (1170x2532) 60 Гц, Apple A14 Bionic, ОЗУ 4 ГБ, память 64 ГБ, камера 12 Мп, аккумулятор 2815 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/bf14a99b6b00fa25711a3e8e7a87d23a.jpeg"
+    },
+    "Xiaomi Redmi Note 12 6GB/128GB с NFC международная версия": {
+        "price": "205.10",
+        "someSpec": "\n                Android, экран 6.67\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 685, ОЗУ 6 ГБ, память 128 ГБ, поддержка карт памяти, камера 50 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM), влагозащита IP53\n            ",
+        "img": "header/7c7f7715ba0c114acbe2123957a035a4.jpeg"
+    },
+    "Apple iPhone 13 Pro Max 128GB": {
+        "price": "1129.58",
+        "someSpec": "\n                Apple iOS, экран 6.7\" OLED (1284x2778) 120 Гц, Apple A15 Bionic, ОЗУ 6 ГБ, память 128 ГБ, камера 12 Мп, аккумулятор 4352 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/6b1b112f9a86d75557c97da40ed6478b.jpeg"
+    },
+    "Xiaomi 13 12GB/256GB международная версия": {
+        "price": "811.22",
+        "someSpec": "\n                Android, экран 6.36\" OLED (1080x2400) 120 Гц, Qualcomm Snapdragon 8 Gen2 SM8550, ОЗУ 12 ГБ, память 256 ГБ, камера 50 Мп, аккумулятор 4500 мАч, 2 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/fa7775be20e1caf686b4218f84b9302b.jpeg"
+    },
+    "POCO X5 Pro 5G 8GB/256GB международная версия": {
+        "price": "336.73",
+        "someSpec": "\n                Android, экран 6.67\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 778G, ОЗУ 8 ГБ, память 256 ГБ, камера 108 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM)\n            ",
+        "img": "header/8d959c280ec4b482692272256597955b.jpeg"
+    },
+    "Apple iPhone 13 mini 128GB": {
+        "price": "764.99",
+        "someSpec": "\n                Apple iOS, экран 5.4\" OLED (1080x2340) 60 Гц, Apple A15 Bionic, ОЗУ 4 ГБ, память 128 ГБ, камера 12 Мп, аккумулятор 2406 мАч, 1 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/75feb3aa25447a7a5bd9929cfe2051d4.jpeg"
+    },
+    "Samsung Galaxy S22 5G SM-S901B/DS 8GB/128GB": {
+        "price": "566.32",
+        "someSpec": "\n                Android, экран 6.1\" AMOLED (1080x2340) 120 Гц, Exynos 2200, ОЗУ 8 ГБ, память 128 ГБ, камера 50 Мп, аккумулятор 3700 мАч, 2 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/46b80765092dd70750fe70651e868431.jpeg"
+    },
+    "Xiaomi 13 Lite 8GB/256GB международная версия": {
+        "price": "413.26",
+        "someSpec": "\n                Android, экран 6.55\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 7 Gen 1, ОЗУ 8 ГБ, память 256 ГБ, камера 50 Мп, аккумулятор 4500 мАч, 2 SIM (nano-SIM/eSIM), влагозащита IP53\n            ",
+        "img": "header/9c015621ef59f139b15b4cf3b34f9a29.jpeg"
+    },
+    "Xiaomi Redmi Note 12 Pro 4G 8GB/256GB международная версия": {
+        "price": "293.57",
+        "someSpec": "\n                Android, экран 6.67\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 732G, ОЗУ 8 ГБ, память 256 ГБ, поддержка карт памяти, камера 108 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM)\n            ",
+        "img": "header/67179ecdfd2f512adab70665f1476290.jpeg"
+    },
+    "Xiaomi Redmi Note 10 Pro 8GB/128GB международная версия": {
+        "price": "269.08",
+        "someSpec": "\n                Android, экран 6.67\" AMOLED (1080x2400) 120 Гц, Qualcomm Snapdragon 732G, ОЗУ 8 ГБ, память 128 ГБ, поддержка карт памяти, камера 108 Мп, аккумулятор 5020 мАч, 2 SIM (nano-SIM), влагозащита IP53\n            ",
+        "img": "header/050a6f0f727e91c7d6fb306dfce40a25.jpeg"
+    },
+    "Google Pixel 7 8GB/128GB": {
+        "price": "581.63",
+        "someSpec": "\n                Android (без оболочки), экран 6.3\" AMOLED (1080x2400) 90 Гц, Google Tensor G2, ОЗУ 8 ГБ, память 128 ГБ, камера 50 Мп, аккумулятор 4355 мАч, 2 SIM (nano-SIM/eSIM), влагозащита IP68\n            ",
+        "img": "header/e10cc1f3a8d768fd0ea28518164ab856.jpeg"
+    },
+    "Xiaomi Redmi Note 12 Pro+ 5G 8GB/256GB международная версия": {
+        "price": "397.96",
+        "someSpec": "\n                Android, экран 6.67\" OLED (1080x2400) 120 Гц, Mediatek Dimensity 1080, ОЗУ 8 ГБ, память 256 ГБ, камера 200 Мп, аккумулятор 5000 мАч, 2 SIM (nano-SIM), влагозащита IP53\n            ",
+        "img": "header/7d51cdb86b5196370971acf9588df4cd.jpeg"
+    }
+}
