@@ -1,0 +1,7 @@
+<div *ngFor="let Food of array" class="food">
+    <div>Name: {{Food.name}}</div>
+    <div *ngIf="Food.ccal">ccal: {{Food.ccal}}</div>
+    <div *ngIf="Food.fats">fats: {{Food.fats}}</div>
+    <div *ngIf="Food.carbohydrates">carbohydrates: {{Food.carbohydrates}}</div>
+    <img *ngIf="Food.img" [src]="Food.img" [alt]="Food.img">
+</div>
